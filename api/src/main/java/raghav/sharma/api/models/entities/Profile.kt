@@ -9,7 +9,7 @@ data class Profile(
     @Json(name = "bio")
     val bio: String?,
     @Json(name = "following")
-    val following: Boolean,
+    val following: Boolean?,
     @Json(name = "image")
     val image: String,
     @Json(name = "username")

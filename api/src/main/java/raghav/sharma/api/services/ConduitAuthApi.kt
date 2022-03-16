@@ -1,5 +1,6 @@
 package raghav.sharma.api.services
 
+import raghav.sharma.api.models.requests.CreateArticleRequest
 import raghav.sharma.api.models.requests.UserUpdateRequest
 import raghav.sharma.api.models.responses.ArticleResponse
 import raghav.sharma.api.models.responses.ArticlesResponse
@@ -42,5 +43,10 @@ interface ConduitAuthApi {
     @DELETE("articles/{slug}/favorite")
     suspend fun unfavoriteArticle(
         @Path("slug") slug: String
+    ): Response<ArticleResponse>
+
+    @POST("articles")
+    suspend fun publishArticle(
+        @Body createArticleRequest: CreateArticleRequest
     ): Response<ArticleResponse>
 }

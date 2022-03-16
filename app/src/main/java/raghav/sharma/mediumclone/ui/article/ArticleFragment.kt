@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import raghav.sharma.mediumclone.R
 import raghav.sharma.mediumclone.databinding.FragmentArticleBinding
 import raghav.sharma.mediumclone.extensions.formatDate
@@ -18,6 +19,8 @@ class ArticleFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // hiding fab
+        requireActivity().findViewById<FloatingActionButton>(R.id.floatingActionButton).hide()
         articleViewModel = ViewModelProvider(this).get(ArticleViewModel::class.java)
         slug = arguments?.getString(resources.getString(R.string.arg_article_slug),"")
         slug?.let {

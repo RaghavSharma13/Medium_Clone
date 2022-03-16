@@ -2,13 +2,11 @@ package raghav.sharma.mediumclone
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
-import androidx.core.view.get
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -20,6 +18,7 @@ import raghav.sharma.api.models.entities.User
 import raghav.sharma.mediumclone.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity"
+
 class MainActivity : AppCompatActivity() {
 
     companion object {
@@ -61,6 +60,11 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
+        binding.appBarMain.floatingActionButton.hide()
+        binding.appBarMain.floatingActionButton.setOnClickListener {
+            navController.navigate(R.id.action_nav_feed_to_nav_add_article)
+        }
+
         authViewModel.user.observe(this) {
             navController.navigateUp()
             updateMenu(it)
@@ -80,10 +84,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
 
-        authViewModel.user.observe({lifecycle}){
+        authViewModel.user.observe({ lifecycle }) {
             it?.run {
                 menuInflater.inflate(R.menu.main, menu)
-            } ?: run{
+            } ?: run {
                 menu.clear()
             }
         }

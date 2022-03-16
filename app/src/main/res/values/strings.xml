@@ -23,5 +23,11 @@
     <string name="update_settings">Update Settings</string>
     <string name="arg_article_slug">ARTICLE_SLUG</string>
     <string name="user_image">User Image</string>
+    <string name="add_article">Add Article</string>
+    <string name="article_title">Article Title</string>
+    <string name="what_s_this_article_about">What\'s this article about?</string>
+    <string name="write_your_article">Write your article</string>
+    <string name="tags">Enter Tags</string>
+    <string name="publish_article">Publish Article</string>
 
 </resources>

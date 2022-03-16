@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import raghav.sharma.api.models.entities.User
 import raghav.sharma.mediumclone.AuthViewModel
@@ -38,8 +39,16 @@ class FeedControllerFragment: Fragment() {
 
         authViewModel.user.observe({lifecycle}){
             when(it){
-                is User-> _binding.feedTabLayout.getTabAt(1)?.view?.isVisible = true
-                else-> _binding.feedTabLayout.getTabAt(1)?.view?.isVisible = false
+                is User-> {
+                    _binding.feedTabLayout.getTabAt(1)?.view?.isVisible = true
+                    requireActivity().findViewById<FloatingActionButton>(R.id.floatingActionButton).show()
+
+                }
+                else-> {
+                    _binding.feedTabLayout.getTabAt(1)?.view?.isVisible = false
+                    requireActivity().findViewById<FloatingActionButton>(R.id.floatingActionButton).hide()
+
+                }
             }
         }
 

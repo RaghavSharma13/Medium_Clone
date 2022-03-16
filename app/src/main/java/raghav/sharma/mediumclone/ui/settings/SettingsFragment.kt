@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import raghav.sharma.mediumclone.AuthViewModel
+import raghav.sharma.mediumclone.R
 import raghav.sharma.mediumclone.databinding.FragmentSettingsBinding
 
 class SettingsFragment: Fragment() {
@@ -19,6 +21,8 @@ class SettingsFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // hiding fab
+        requireActivity().findViewById<FloatingActionButton>(R.id.floatingActionButton).hide()
         _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return _binding.root
     }

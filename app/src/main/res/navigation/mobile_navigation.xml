@@ -23,6 +23,12 @@
 
                 />
         </action>
+        <action
+            android:id="@+id/action_nav_feed_to_nav_add_article"
+            app:destination="@id/nav_add_article"
+            app:popEnterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_exit_anim"
+            app:popUpTo="@id/nav_feed" />
     </fragment>
 
     <fragment
@@ -42,4 +48,12 @@
         android:name="raghav.sharma.mediumclone.ui.article.ArticleFragment"
         android:label="Article"
         tools:layout="@layout/fragment_article" />
+
+    <fragment
+        android:id="@+id/nav_add_article"
+        android:name="raghav.sharma.mediumclone.ui.article.AddArticleFragment"
+        android:label="Add Article"
+        tools:layout="@layout/fragment_add_article" />
+
+
 </navigation>
